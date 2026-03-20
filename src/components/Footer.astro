@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import clientLogo from "../assets/images/logo.png";
+
 const currentYear = new Date().getFullYear();
 ---
 
@@ -10,6 +13,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-4 gap-24 border-b border-white/5 pb-24">
       <!-- Info -->
       <div class="md:col-span-2">
+         <Image src={clientLogo} alt="Logo" class="h-16 w-auto mb-12 brightness-0 invert opacity-80 hover:opacity-100 transition-opacity" />
          <h2 class="font-serif text-[clamp(2.5rem,5vw,4.5rem)] text-white mb-12 leading-tight tracking-tighter">
            Você não precisa <br /> caminhar <span class="italic font-light text-brand-gold opacity-100">sozinho.</span>
          </h2>

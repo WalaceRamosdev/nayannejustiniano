@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import clientLogo from "../assets/images/logo.png";
+
 const navLinks = [
   { label: "Sobre", href: "#sobre" },
   { label: "Abordagem", href: "#abordagem" },
@@ -9,12 +12,11 @@ const navLinks = [
 ];
 ---
 
-<header id="main-header" class="fixed top-8 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50 transition-all duration-700">
-  <div class="bg-white/70 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(10,18,30,0.05)] rounded-full px-8 py-4 flex justify-between items-center overflow-hidden">
-    <div class="logo font-serif text-xl md:text-2xl tracking-tighter text-brand-blue group">
-      <a href="/" class="flex items-center gap-3">
-        <span class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold text-xs font-black">NJ</span>
-        <span class="group-hover:text-brand-gold transition-colors">Nayanne Justiniano</span>
+<header id="main-header" class="fixed top-8 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 transition-all duration-700">
+  <div class="bg-white/70 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(10,18,30,0.05)] rounded-full px-8 py-3 flex justify-between items-center overflow-hidden">
+    <div class="logo group flex-shrink-0">
+      <a href="/" class="flex items-center">
+        <Image src={clientLogo} alt="Logo Nayanne Justiniano" class="h-10 md:h-12 w-auto object-contain transition-all duration-500 group-hover:scale-105 brightness-[0.3] contrast-125" />
       </a>
     </div>
 
@@ -72,7 +74,6 @@ const navLinks = [
   const mobileToggle = document.getElementById('mobile-toggle');
   const mobileClose = document.getElementById('mobile-close');
   const mobileMenu = document.getElementById('mobile-menu');
-  const menuOverlay = document.getElementById('menu-overlay');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
   // Shrink effect on scroll
