@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import clientLogo from '../assets/images/logo.png';
+
+const pillars = [
+  { title: "Design Editorial", desc: "Ar fresco, espaços vazios e fontes clássicas que transmitem confiança e luxo.", icon: "pen-tool" },
+  { title: "SEO Estratégico", desc: "Otimização local para Almenara e regional para Minas Gerais e Online.", icon: "search" },
+  { title: "Performance 100", desc: "Carregamento instantâneo para não perder nenhum paciente em potencial.", icon: "zap" },
+  { title: "Conexão Direta", desc: "Linktree interno e botões de WhatsApp flutuantes para conversão imediata.", icon: "message-circle" },
+];
+
+const colors = [
+  { name: "Brand Blue", hex: "#0A121E", usage: "Fundo principal, textos e seriedade." },
+  { name: "Brand Gold", hex: "#C5A059", usage: "Botões, ícones e detalhes de luxo." },
+  { name: "Brand Stone", hex: "#F3F0E9", usage: "Warmth e profundidade no cabeçalho." },
+  { name: "Linen White", hex: "#FAF9F6", usage: "Clareza e leveza nas seções de leitura." },
+];
+---
+
+<Layout title="Manual de Identidade & Gestão | Nayanne Justiniano">
+  <main class="min-h-screen bg-white text-brand-blue font-sans selection:bg-brand-gold/10 selection:text-brand-blue antialiased">
+    
+    <!-- Hero Section: Didactic Intro -->
+    <header class="relative py-32 px-12 lg:px-24 bg-brand-blue text-white overflow-hidden">
+       <div class="absolute inset-0 opacity-10 grain-bg"></div>
+       <div class="container mx-auto max-w-5xl relative z-10">
+          <Image src={clientLogo} alt="Logo" class="h-10 w-auto mb-12 brightness-0 invert" />
+          <h1 class="font-serif text-5xl lg:text-7xl tracking-tighter mb-8 leading-tight">Sua presença digital, <br/> <span class="italic text-brand-gold opacity-100">lapidada com precisão.</span></h1>
+          <p class="text-lg lg:text-xl font-light opacity-60 max-w-2xl leading-relaxed italic">
+            Este guia foi criado para que você e sua equipe entendam cada detalhe técnico e visual do seu novo ecossistema digital. Não é apenas um site, é sua marca em formato de luxo silêncioso.
+          </p>
+       </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-12 lg:px-24 py-24 lg:py-40">
+       
+       <!-- Section 1: O Que Fizemos (Didactic Blocks) -->
+       <section class="mb-64 pt-32">
+          <div class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-24">
+             <div class="max-w-md">
+                <span class="text-xs uppercase tracking-[0.5em] font-black text-brand-gold mb-10 block">Capítulo 01</span>
+                <h2 class="text-4xl lg:text-6xl font-serif tracking-tight">Os Pilares do Projeto</h2>
+             </div>
+             <p class="lg:max-w-lg text-base lg:text-lg leading-loose opacity-80 font-light italic">
+                Para elevar seu posicionamento clínico, unimos tecnologia de ponta com um design que respira. Cada clique foi pensado para gerar proximidade e segurança.
+             </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+             {pillars.map(pillar => (
+               <div class="p-12 bg-[#F3F0E9]/30 border border-brand-blue/5 rounded-[3rem] hover:bg-white hover:border-brand-gold/20 hover:shadow-2xl hover:shadow-brand-blue/5 transition-all duration-700 group">
+                  <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-brand-gold group-hover:text-white transition-colors duration-500">
+                     <span class="text-xl">✦</span>
+                  </div>
+                  <h3 class="font-bold text-sm uppercase tracking-widest mb-4">{pillar.title}</h3>
+                  <p class="text-sm leading-relaxed opacity-70 italic">{pillar.desc}</p>
+               </div>
+             ))}
+          </div>
+       </section>
+
+       <!-- Section 2: Identidade em Cores -->
+       <section class="mb-64 p-16 lg:p-32 bg-brand-blue rounded-[5rem] text-white relative overflow-hidden shadow-2xl">
+          <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[150px] -mr-64 -mb-64"></div>
+          <div class="relative z-10">
+             <div class="max-w-lg mb-24">
+                <span class="text-xs uppercase tracking-[0.5em] font-black text-brand-gold mb-10 block opacity-80">Capítulo 02</span>
+                <h2 class="text-4xl lg:text-6xl font-serif tracking-tight mb-8 leading-tight">A Ciência das Cores</h2>
+                <p class="text-base lg:text-lg opacity-70 leading-relaxed font-light italic">
+                   Usamos tons terrosos e minerais para transmitir calma (Psicanálise) e o dourado para reforçar o valor do serviço clínico.
+                </p>
+             </div>
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {colors.map(color => (
+                  <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[2.5rem] group hover:bg-white hover:text-brand-blue transition-all duration-700">
+                     <div class="w-12 h-12 rounded-full mb-8 shadow-xl" style={`background-color: ${color.hex}; border: 2px solid rgba(255,255,255,0.1);`}></div>
+                     <span class="block text-xs uppercase tracking-widest font-black mb-1">{color.name}</span>
+                     <code class="block text-brand-gold text-sm font-mono mb-6 group-hover:text-brand-blue/50">{color.hex}</code>
+                     <p class="text-[0.7rem] opacity-70 leading-relaxed italic">{color.usage}</p>
+                  </div>
+                ))}
+             </div>
+          </div>
+       </section>
+
+       <!-- Section 3: Alcance & SEO Local -->
+       <section class="mb-64 pt-32">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-start">
+             <div>
+                <span class="text-xs uppercase tracking-[0.5em] font-black text-brand-gold mb-10 block">Capítulo 03</span>
+                <h2 class="text-4xl lg:text-6xl font-serif tracking-tight mb-12">Estratégia de Alcance (SEO)</h2>
+                <div class="space-y-8">
+                   <div class="p-10 bg-white border border-brand-blue/5 rounded-[3rem] shadow-sm hover:shadow-xl transition-shadow">
+                      <h4 class="font-bold text-sm uppercase tracking-widest mb-4">Localidade Almenara</h4>
+                      <p class="text-sm opacity-80 leading-loose italic">O Google priorizará seu site para buscas feitas dentro de Almenara e região próxima quando o termo "Psicóloga" for pesquisado.</p>
+                   </div>
+                   <div class="p-10 bg-white border border-brand-blue/5 rounded-[3rem] shadow-sm opacity-80 lg:translate-x-12 hover:shadow-xl transition-all">
+                      <h4 class="font-bold text-sm uppercase tracking-widest mb-4">Atendimento Online</h4>
+                      <p class="text-sm opacity-80 leading-loose italic">Tags específicas foram injetadas para atrair pacientes em todo o Brasil que buscam psicoterapia moderna e digital.</p>
+                   </div>
+                </div>
+             </div>
+             <div class="p-16 lg:p-20 bg-[#F3F0E9] rounded-[5rem] relative">
+                <div class="mb-10">
+                   <span class="bg-brand-gold text-white px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl inline-block mb-8">Ativo no Google</span>
+                   <h3 class="font-serif text-4xl mb-10 italic">Palavras-Chave Configuradas</h3>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                   {["Psicóloga Almenara MG", "Psicoterapia Online", "Fenomenologia Existencial", "Nayanne Justiniano"].map(kw => (
+                     <span class="px-8 py-4 bg-white rounded-2xl text-sm font-bold text-brand-blue shadow-md hover:scale-105 transition-transform cursor-default">{kw}</span>
+                   ))}
+                </div>
+             </div>
+          </div>
+       </section>
+
+       <!-- Section 4: Gestão Final -->
+       <section class="py-40 border-t border-brand-blue/5 text-center">
+          <span class="text-sm uppercase tracking-[0.5em] font-black text-brand-gold mb-12 block">Finalização</span>
+          <h2 class="text-4xl lg:text-7xl font-serif tracking-tight mb-20 leading-tight">Seu Hub Administrativo</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 max-w-6xl mx-auto">
+             <a href="https://github.com/WalaceRamosdev/nayannejustiniano" class="p-12 bg-white border border-brand-blue/5 rounded-[3rem] hover:scale-105 transition-all shadow-sm block group hover:shadow-2xl">
+                <span class="block text-xs uppercase tracking-widest font-black opacity-40 mb-6 font-sans">Versionamento</span>
+                <span class="font-serif text-3xl border-b border-brand-gold/20 pb-2 group-hover:border-brand-gold transition-colors">Código GitHub</span>
+             </a>
+             <a href="https://nayanne-justiniano-psicologa.vercel.app/links" class="p-12 bg-white border border-brand-blue/5 rounded-[3rem] hover:scale-105 transition-all shadow-sm block group hover:shadow-2xl">
+                <span class="block text-xs uppercase tracking-widest font-black opacity-40 mb-6 font-sans">Marketing</span>
+                <span class="font-serif text-3xl border-b border-brand-gold/20 pb-2 group-hover:border-brand-gold transition-colors">Página de Links</span>
+             </a>
+             <a href="https://vercel.com" class="p-12 bg-white border border-brand-blue/5 rounded-[3rem] hover:scale-105 transition-all shadow-sm block group hover:shadow-2xl">
+                <span class="block text-xs uppercase tracking-widest font-black opacity-40 mb-6 font-sans">Hospedagem</span>
+                <span class="font-serif text-3xl border-b border-brand-gold/20 pb-2 group-hover:border-brand-gold transition-colors">Painel Vercel</span>
+             </a>
+          </div>
+       </section>          </a>
+          </div>
+       </section>
+
+       <footer class="mt-40 pt-20 border-t border-brand-blue/5 text-center opacity-30">
+          <p class="text-xs uppercase tracking-[0.8em] font-black">Desenvolvido com excelência por Alpha Code</p>
+       </footer>om excelência por Alpha Code</p>
+       </footer>
+
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .grain-bg {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  }
+  .font-serif { font-family: 'Prata', serif; }
+  .font-sans { font-family: 'Outfit', sans-serif; }
+</style>

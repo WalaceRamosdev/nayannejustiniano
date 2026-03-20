@@ -12,12 +12,31 @@ const { title, description = "Psicóloga Nayanne Justiniano - Atendimento em Alm
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="shortcut icon" href="/favicon.png" />
+		<link rel="canonical" href="https://nayanne-justiniano-psicologa.vercel.app/" />
 		<meta name="generator" content={Astro.generator} />
     
     <!-- SEO -->
-    <title>{title}</title>
+    <title>{title} | Nayanne Justiniano | Psicóloga em Almenara, MG</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="psicóloga almenara, psicoterapia online, nayanne justiniano, fenomenologia existencial, psicóloga em bh, saúde mental almenara, terapia online brasil" />
+    <meta name="author" content="Nayanne Justiniano" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Meta Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nayanne-justiniano-psicologa.vercel.app/" />
+    <meta property="og:title" content={`${title} | Nayanne Justiniano`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/favicon.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://nayanne-justiniano-psicologa.vercel.app/" />
+    <meta property="twitter:title" content={`${title} | Nayanne Justiniano`} />
+    <meta property="twitter:description" content={description} />
+
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
