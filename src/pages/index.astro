@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Resonance from '../components/Resonance.astro';
+import About from '../components/About.astro';
+import ForWhom from '../components/ForWhom.astro';
+import Differentials from '../components/Differentials.astro';
+import Approach from '../components/Approach.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Nayanne Justiniano | Psicóloga Fenomenológica Existencial">
+	<Navbar />
+	<main>
+		<Hero />
+		
+    <!-- Immersive Resonance (Pensamentos) -->
+    <Resonance />
+
+		<About />
+
+    <!-- Huge Immersive Quote -->
+    <section class="min-h-[70vh] flex items-center justify-center bg-[#FAF9F6] px-6 py-32 relative overflow-hidden border-y border-brand-gold/10">
+        <div class="absolute inset-0 z-0 opacity-40">
+           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.05)_0%,transparent_70%)] blur-[100px]"></div>
+        </div>
+        <div class="container mx-auto text-center scroll-reveal relative z-10">
+           <p class="text-[0.6rem] uppercase tracking-[0.5em] text-brand-gold font-black mb-8">Existencialismo</p>
+           <h2 class="font-serif text-[clamp(2rem,6vw,5rem)] text-brand-blue/40 leading-[1] tracking-tighter italic">"Na sua dor, reside <br /> <span class="text-brand-gold/60">a sua humanidade.</span>"</h2>
+        </div>
+    </section>
+
+    <!-- New Section: For Whom -->
+    <ForWhom />
+    
+		<Differentials />
+    
+		<Approach />
+		<HowItWorks />
+		<FAQ />
+	</main>
+	<Footer />
+</Layout>

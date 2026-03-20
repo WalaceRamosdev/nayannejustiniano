@@ -1,0 +1,60 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer id="contato" class="py-48 px-6 bg-brand-blue text-white/60 relative overflow-hidden">
+  <!-- Decorative background elements (Subtle) -->
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold/5 rounded-full -ml-48 -mb-48 blur-[120px]"></div>
+
+  <div class="container mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-24 border-b border-white/5 pb-24">
+      <!-- Info -->
+      <div class="md:col-span-2">
+         <h2 class="font-serif text-[clamp(2.5rem,5vw,4.5rem)] text-white mb-12 leading-tight tracking-tighter">
+           Você não precisa <br /> caminhar <span class="italic font-light text-brand-gold opacity-100">sozinho.</span>
+         </h2>
+         <div class="flex flex-col sm:flex-row gap-6 mb-12">
+           <a href="https://wa.me/5531991838243" class="group relative bg-brand-gold text-brand-blue px-12 py-6 rounded-full text-xl font-bold hover:scale-105 transition-all shadow-2xl overflow-hidden">
+             <span class="relative z-10">Agendar conversa</span>
+             <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+           </a>
+         </div>
+         <p class="text-xs tracking-[0.4em] opacity-40 uppercase font-black">Almenara, MG • Atendimento Online para todo o mundo</p>
+      </div>
+
+      <!-- Links -->
+      <div class="md:col-start-4 space-y-12">
+        <div class="space-y-4">
+          <h3 class="font-serif text-2xl text-white">Contato</h3>
+          <ul class="space-y-4 text-white/50 font-light text-lg">
+            <li>
+              <a href="tel:31991838243" class="hover:text-brand-gold transition-colors font-sans">(31) 99183-8243</a>
+            </li>
+            <li>
+              <a href="mailto:annejustiniano@hotmail.com" class="hover:text-brand-gold transition-colors font-sans">annejustiniano@hotmail.com</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="space-y-4">
+          <h3 class="font-serif text-2xl text-white">Registro Profissional</h3>
+          <p class="text-white/50 font-light text-lg">Nayanne Justiniano <br/> CRP 04/84986</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[0.65rem] uppercase tracking-[0.5em] opacity-30 font-bold">
+      <p>&copy; {currentYear} Nayanne Justiniano — Todos os direitos reservados.</p>
+      <div class="flex flex-wrap justify-center gap-8">
+        <a href="https://www.sitesalphacode.com.br/solucoes/psicologos" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">Desenvolvido por Alpha Code</a>
+        <span>Psicoterapia Online</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Fixed Button (Desktop & Mobile) -->
+<a href="https://wa.me/5531991838243" id="whatsapp-fixed" class="fixed bottom-8 right-8 z-50 p-5 bg-green-500 text-white rounded-full shadow-2xl hover:bg-green-600 hover:scale-110 active:scale-90 transition-all duration-500 group">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+  <span class="absolute right-full mr-4 bg-white text-brand-blue border border-brand-gold/20 px-6 py-3 rounded-2xl text-sm font-bold invisible group-hover:visible translate-x-4 group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap shadow-2xl">Vamos conversar?</span>
+</a>

@@ -1,0 +1,69 @@
+---
+const steps = [
+  {
+    number: "01",
+    label: "O Encontro",
+    description: "Tudo começa com um primeiro passo. Clique no botão de WhatsApp e deixe a sua mensagem. Responderei pessoalmente."
+  },
+  {
+    number: "02",
+    label: "A Escuta",
+    description: "Nesse encontro inicial, o foco é você. É onde entendemos o que te trouxe até aqui e como eu posso te acompanhar."
+  },
+  {
+    number: "03",
+    label: "O Processo",
+    description: "A partir da nossa sintonia, iniciamos a construção do seu caminho terapêutico. Sem pressa, com profundidade."
+  }
+]
+---
+
+<section id="como-funciona" class="py-64 px-6 bg-white relative">
+  <div class="container mx-auto max-w-5xl">
+    <div class="text-center mb-32 scroll-reveal text-balance">
+      <h2 class="font-serif text-[clamp(2.5rem,7vw,5rem)] text-brand-blue leading-[0.9] tracking-tighter mb-8">
+        Caminhando para a <br /> <span class="italic font-light text-brand-gold">clareza profunda.</span>
+      </h2>
+      <p class="text-xl text-brand-blue/60 font-light tracking-wide">O percurso clínico é contínuo, ético e singular.</p>
+    </div>
+
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-gold/50 via-brand-gold/10 to-transparent hidden md:block"></div>
+
+      <div class="space-y-32">
+        {steps.map((step, idx) => (
+          <div class={`flex flex-col md:flex-row items-center gap-12 lg:gap-24 scroll-reveal ${idx % 2 !== 0 ? 'md:flex-row-reverse' : ''}`} style={`transition-delay: ${idx * 200}ms;`}>
+            
+            <div class="flex-1 text-center md:text-left space-y-6">
+               <div class={`inline-flex items-center gap-4 ${idx % 2 !== 0 ? 'md:flex-row-reverse md:text-right' : ''}`}>
+                  <span class="text-[0.6rem] uppercase tracking-[0.5em] font-black text-brand-gold">{step.number}</span>
+                  <div class="w-8 h-px bg-brand-gold/30"></div>
+               </div>
+               <h3 class="font-serif text-4xl text-brand-blue leading-none">{step.label}</h3>
+               <p class={idx % 2 !== 0 ? "text-brand-blue/80 font-light leading-relaxed md:text-right max-w-sm ml-auto" : "text-brand-blue/80 font-light leading-relaxed max-w-sm"}>
+                  {step.description}
+               </p>
+            </div>
+
+            <!-- Central Number Circle -->
+            <div class="relative z-10 w-24 h-24 rounded-full bg-white border border-brand-gold/20 flex items-center justify-center shadow-xl group hover:bg-brand-blue hover:border-brand-blue transition-all duration-700">
+               <span class="font-serif text-3xl text-brand-gold group-hover:text-white transition-colors">{step.number}</span>
+            </div>
+
+            <div class="flex-1 hidden md:block"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class="mt-48 text-center scroll-reveal">
+       <a href="https://wa.me/5531991838243" class="inline-flex items-center gap-6 group">
+          <span class="text-[0.7rem] uppercase tracking-[0.6em] font-black text-brand-blue">Iniciar minha jornada</span>
+          <div class="w-16 h-16 rounded-full bg-brand-blue text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+       </a>
+    </div>
+  </div>
+</section>

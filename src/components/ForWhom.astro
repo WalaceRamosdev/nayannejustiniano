@@ -1,0 +1,44 @@
+---
+const items = [
+  {
+    title: "Vazio e Angústia",
+    description: "Sente que algo falta, mesmo quando tudo parece estar no lugar. Uma busca por sentido que dói."
+  },
+  {
+    title: "Rótulos que limitam",
+    description: "Cansado de ser tratado apenas como um diagnóstico ou conjunto de sintomas."
+  },
+  {
+    title: "Desejo de Mudança",
+    description: "Busca não apenas 'parar de sofrer', mas entender como viver de forma mais autêntica."
+  }
+]
+---
+<section id="para-quem" class="py-64 px-6 bg-white border-y border-brand-gold/10">
+  <div class="container mx-auto">
+    <div class="max-w-4xl mx-auto text-center mb-32 scroll-reveal text-balance">
+       <h2 class="font-serif text-[clamp(2.5rem,7vw,5rem)] text-brand-blue leading-[0.9] tracking-tighter mb-12">
+         Para quem é este <br /> <span class="italic font-light text-brand-gold">espaço de escuta?</span>
+       </h2>
+       <p class="text-xl md:text-2xl text-brand-blue/60 font-light leading-relaxed">
+         A psicoterapia é um convite para olhar para a própria existência com coragem, honestidade e sem o peso de rótulos pré-estabelecidos.
+       </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+      {items.map((item, idx) => (
+        <div class="p-16 rounded-[4rem] bg-[#FAF9F6] border border-brand-gold/10 scroll-reveal group hover:-translate-y-4 hover:shadow-[0_40px_80px_-15px_rgba(10,18,30,0.05)] transition-all duration-700" style={`transition-delay: ${idx * 150}ms;`}>
+          <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-10 shadow-sm group-hover:bg-brand-gold transition-colors duration-500">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-gold group-hover:text-white transition-colors"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <h3 class="font-serif text-3xl text-brand-blue mb-6 group-hover:text-brand-gold transition-all">{item.title}</h3>
+          <p class="text-brand-blue/70 font-light leading-relaxed text-sm lg:text-base mb-8">{item.description}</p>
+          <div class="flex items-center gap-3 text-brand-gold opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0 duration-500">
+             <span class="text-[0.6rem] uppercase tracking-widest font-black">Saiba mais</span>
+             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

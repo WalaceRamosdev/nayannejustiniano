@@ -1,0 +1,50 @@
+---
+const differentials = [
+  {
+    title: "Você não é um diagnóstico",
+    description: "Cada pessoa é um fenômeno único. Não olhamos para a doença, mas para a forma como você vive a sua vida e as suas dores.",
+    tag: "Existência"
+  },
+  {
+    title: "Sem respostas prontas",
+    description: "A terapia é uma construção mútua. Fugimos de fórmulas mágicas para focar no que faz sentido na sua realidade particular.",
+    tag: "Autenticidade"
+  },
+  {
+    title: "Presença real",
+    description: "Uma escuta que não julga, mas que acompanha. Você não está sozinho na busca por compreender os seus próprios caminhos.",
+    tag: "Vínculo"
+  }
+]
+---
+
+<section class="py-64 px-6 bg-white border-b border-brand-gold/10">
+  <div class="container mx-auto">
+    <div class="mb-32 scroll-reveal text-center lg:text-left">
+      <h2 class="font-serif text-[clamp(2rem,6vw,4.5rem)] text-brand-blue tracking-tighter leading-tight italic">
+        Onde o <span class="bg-brand-gold/10 px-6 py-2 rounded-full text-brand-gold not-italic font-normal">encontro vivo</span> <br /> acontece.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {differentials.map((diff, idx) => (
+        <div class="group relative p-12 lg:p-20 bg-[#FAF9F6] rounded-[3rem] border border-brand-gold/5 hover:bg-brand-blue transition-all duration-1000 overflow-hidden scroll-reveal" style={`transition-delay: ${idx * 200}ms;`}>
+          <!-- Watermark number -->
+          <div class="absolute -top-10 -right-10 font-serif text-[12rem] text-brand-gold/[0.05] group-hover:text-white/5 transition-colors italic">0{idx + 1}</div>
+          
+          <div class="relative z-10 space-y-8">
+            <span class="inline-block text-[0.6rem] uppercase tracking-[0.4em] font-black text-brand-gold bg-white px-4 py-2 rounded-full shadow-sm group-hover:bg-brand-gold group-hover:text-white transition-all">{diff.tag}</span>
+            <h3 class="font-serif text-4xl text-brand-blue group-hover:text-white transition-colors leading-[0.9]">{diff.title}</h3>
+            <p class="text-brand-blue/70 group-hover:text-white/80 font-light leading-relaxed text-base transition-colors">{diff.description}</p>
+          </div>
+          
+          <div class="absolute bottom-12 right-12 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-700">
+             <div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+             </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

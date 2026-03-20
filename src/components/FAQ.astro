@@ -1,0 +1,45 @@
+---
+const faqs = [
+  {
+    question: "Preciso estar muito mal para começar?",
+    answer: "Não. A terapia é um espaço de autocompreensão e acolhimento. Ela é recomendada para qualquer pessoa que sinta necessidade de olhar para a sua vida, para os seus sentimentos e para as suas escolhas, independente do nível de sofrimento."
+  },
+  {
+    question: "Terapia demora muito?",
+    answer: "O tempo de cada processo é único. Como trabalhamos com a construção conjunta e não com soluções prontas, o ritmo é definido pelo seu próprio amadurecimento e clareza. Não prometemos resultados rápidos, mas sim profundidade."
+  },
+  {
+    question: "Como funciona o atendimento online?",
+    answer: "As sessões são realizadas por vídeo em uma plataforma segura, garantindo o sigilo ético. A eficácia é a mesma do presencial, permitindo que você seja atendido no conforto e segurança do seu espaço."
+  },
+  {
+    question: "Como é o pagamento e a frequência das sessões?",
+    answer: "Geralmente as sessões são semanais e duram cerca de 50 minutos. Os detalhes sobre valores e formas de pagamento podem ser combinados na nossa conversa inicial."
+  }
+]
+---
+
+<section id="faq" class="py-48 px-6 bg-white border-t border-brand-gold/10">
+  <div class="container mx-auto max-w-4xl">
+    <div class="text-center mb-24 scroll-reveal">
+      <h2 class="font-serif text-[clamp(2.5rem,6vw,4rem)] text-brand-blue tracking-tighter mb-8 leading-tight italic">Dúvidas frequentes <span class="italic font-light text-brand-gold opacity-50">(FAQ)</span></h2>
+      <p class="text-brand-blue/40 text-xl font-light leading-relaxed">Respostas para te ajudar a iniciar o seu processo.</p>
+    </div>
+    
+    <div class="space-y-8">
+      {faqs.map((faq, idx) => (
+        <details class="group bg-[#FAF9F6] border border-brand-gold/10 rounded-[2.5rem] p-10 md:p-14 scroll-reveal hover:shadow-2xl hover:shadow-brand-gold/5 transition-all duration-700" style={`transition-delay: ${idx * 100}ms;`}>
+          <summary class="list-none flex justify-between items-center cursor-pointer font-serif text-2xl md:text-4xl text-brand-blue/70 group-open:text-brand-blue transition-colors">
+            {faq.question}
+            <span class="group-open:rotate-180 transition-transform duration-700 transform text-brand-gold ml-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+          </summary>
+          <div class="pt-10 text-brand-blue/50 font-light leading-relaxed text-lg md:text-xl border-t border-brand-gold/20 mt-10">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
