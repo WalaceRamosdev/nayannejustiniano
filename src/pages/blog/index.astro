@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<Layout 
+  title="Blog | Reflexões sobre Saúde Mental" 
+  description="Artigos e reflexões sobre psicologia, fenomenologia existencial e bem-estar por Nayanne Justiniano."
+>
+  <Navbar />
+  
+  <main class="pt-32 pb-24">
+    <!-- Header Section -->
+    <section class="max-w-screen-xl mx-auto px-6 mb-24">
+      <div class="max-w-3xl scroll-reveal">
+        <p class="text-[0.6rem] uppercase tracking-[0.5em] text-brand-gold font-black mb-6">Reflexões & Saberes</p>
+        <h1 class="font-serif text-[clamp(2.5rem,8vw,5.5rem)] text-brand-blue leading-[1] tracking-tighter mb-8 italic">
+          Onde a palavra <br /> <span class="text-brand-gold">encontra o sentido.</span>
+        </h1>
+        <p class="text-xl font-sans font-light text-brand-blue/70 leading-relaxed max-w-2xl">
+          Explorando as nuances da existência sob a ótica da fenomenologia e do cuidado humano. Artigos pensados para acolher sua jornada.
+        </p>
+      </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="max-w-screen-xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+        {posts.map((post) => (
+          <BlogCard 
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            image={post.data.image || ""}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Content Management Notice -->
+    <div class="max-w-screen-xl mx-auto px-6 mt-32 text-center opacity-50 hover:opacity-100 transition-opacity duration-700">
+      <p class="text-[0.6rem] uppercase tracking-widest font-black text-brand-blue mb-2">Gestão de Conteúdo</p>
+      <p class="text-xs font-sans text-brand-blue font-light">
+        A estratégia de artigos deste site é acelerada pela <a href="https://www.sitesalphacode.com.br/pedido?plan=artigos" target="_blank" rel="noopener noreferrer" class="text-brand-gold font-bold hover:underline">Alpha Code</a>.
+      </p>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="max-w-screen-xl mx-auto px-6 mt-20">
+      <div class="bg-brand-blue/5 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden scroll-reveal">
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-brand-gold/10 rounded-full blur-[80px]"></div>
+        <div class="relative z-10">
+          <h2 class="font-serif text-3xl md:text-5xl text-brand-blue mb-8">Deseja um acompanhamento <br /> personalizado?</h2>
+          <p class="text-lg font-sans font-light text-brand-blue/70 mb-12 max-w-xl mx-auto">
+            A jornada pelo autoconhecimento não precisa ser feita sozinha. Agende sua consulta e comece hoje mesmo.
+          </p>
+          <a 
+            href="/#contact" 
+            class="inline-block bg-brand-gold text-white px-10 py-5 rounded-full font-sans tracking-widest text-sm uppercase hover:bg-brand-blue transition-all duration-500 shadow-xl shadow-brand-gold/20"
+          >
+            Agendar Sessão
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    background-image: radial-gradient(circle at top right, rgba(197, 160, 89, 0.03) 0%, transparent 40%);
+  }
+</style>

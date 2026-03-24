@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const formattedDate = post.data.pubDate.toLocaleDateString('pt-BR', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout 
+  title={post.data.title} 
+  description={post.data.description}
+>
+  <Navbar />
+  
+  <main class="pt-32 pb-40">
+    <!-- Post Header -->
+    <header class="max-w-screen-xl mx-auto px-6 mb-20 scroll-reveal">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center gap-4 text-sm font-sans tracking-widest text-brand-gold uppercase mb-8">
+          <span>{post.data.tags?.[0] || 'Psicologia'}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-gold/30"></span>
+          <span>{formattedDate}</span>
+        </div>
+        
+        <h1 class="font-serif text-[clamp(2.5rem,7vw,5rem)] text-brand-blue leading-[1.1] tracking-tighter mb-12">
+          {post.data.title}
+        </h1>
+        
+        <p class="text-2xl font-sans font-extralight text-brand-blue/60 leading-relaxed italic border-l-4 border-brand-gold ps-8 py-2">
+          {post.data.description}
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Image -->
+    {post.data.image && (
+      <figure class="max-w-screen-2xl mx-auto px-6 mb-24 scroll-reveal">
+        <div class="relative aspect-[21/9] overflow-hidden rounded-[3rem] shadow-2xl shadow-brand-blue/10">
+          <img 
+            src={post.data.image} 
+            alt={post.data.title} 
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      </figure>
+    )}
+
+    <!-- Content Area -->
+    <article class="max-w-3xl mx-auto px-6 font-sans text-brand-blue/80 scroll-reveal">
+      <div class="prose prose-lg prose-brand-blue max-w-none prose-headings:font-serif prose-headings:font-normal prose-h2:text-4xl prose-h3:text-3xl prose-p:leading-[1.8] prose-p:font-light prose-strong:font-normal prose-strong:text-brand-blue prose-img:rounded-3xl prose-blockquote:border-brand-gold prose-blockquote:italic prose-blockquote:font-serif prose-blockquote:text-brand-blue/60">
+        <Content />
+      </div>
+      
+      <!-- Alpha Code Management Notice -->
+      <div class="mt-16 p-8 rounded-3xl bg-brand-sand/10 border border-brand-sand/30 text-center scroll-reveal">
+        <p class="text-xs uppercase tracking-[0.2em] text-brand-blue/40 mb-4 font-bold">Conteúdo Estratégico</p>
+        <p class="text-sm font-sans text-brand-blue/60 italic leading-relaxed">
+          Este artigo faz parte do programa de gestão de conteúdo especializado para psicólogas, <br class="hidden md:block" />
+          desenvolvido e mantido pela <a href="https://www.sitesalphacode.com.br/pedido?plan=artigos" target="_blank" rel="noopener noreferrer" class="text-brand-gold font-medium hover:underline decoration-brand-gold/30">Alpha Code</a>.
+        </p>
+      </div>
+      
+      <!-- Tags & Share -->
+      <footer class="mt-20 pt-12 border-t border-brand-sand/50 flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="flex flex-wrap gap-4">
+          {post.data.tags?.map((tag) => (
+            <span class="bg-brand-blue/5 text-brand-blue/60 text-xs tracking-widest uppercase font-sans px-5 py-2.5 rounded-full border border-brand-blue/10">
+              #{tag}
+            </span>
+          ))}
+        </div>
+        
+        <div class="flex items-center gap-6">
+          <span class="text-xs uppercase tracking-[0.2em] font-black text-brand-gold">Voltar ao Blog</span>
+          <a 
+            href="/blog" 
+            class="w-14 h-14 rounded-full bg-brand-gold flex items-center justify-center text-white hover:bg-brand-blue transition-colors duration-500 shadow-lg shadow-brand-gold/20 group"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:-translate-x-1"><path d="m15 18-6-6 6-6"/></svg>
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <!-- More Articles Placeholder? -->
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Custom prose styling for premium look */
+  .prose h2 {
+    @apply mt-20 mb-8 border-b border-brand-sand/30 pb-4 tracking-tighter;
+  }
+  .prose h3 {
+    @apply mt-12 mb-6 tracking-tight;
+  }
+  .prose p {
+    @apply mb-8;
+  }
+  .prose ul {
+    @apply mb-12 space-y-4 list-none p-0;
+  }
+  .prose li {
+    @apply relative ps-8;
+  }
+  .prose li::before {
+    content: '';
+    @apply absolute left-0 top-[0.8em] w-2 h-2 rounded-full bg-brand-gold;
+  }
+</style>

@@ -10,6 +10,11 @@ import Approach from '../components/Approach.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout title="Nayanne Justiniano | Psicóloga Fenomenológica Existencial">
@@ -40,6 +45,35 @@ import Footer from '../components/Footer.astro';
     
 		<Approach />
 		<HowItWorks />
+
+    <!-- Latest from Blog -->
+    <section class="py-32 bg-white/30 backdrop-blur-sm border-y border-brand-gold/5 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 scroll-reveal">
+                <div class="max-w-xl">
+                    <p class="text-[0.6rem] uppercase tracking-[0.5em] text-brand-gold font-black mb-6">Conhecimento & Reflexão</p>
+                    <h2 class="font-serif text-[clamp(2rem,5vw,4rem)] text-brand-blue leading-[1.1] tracking-tighter italic">Últimos artigos <br /> <span class="text-brand-gold/60">do blog.</span></h2>
+                </div>
+                <a href="/blog" class="group flex items-center gap-4 text-xs font-black uppercase tracking-widest text-brand-blue/60 hover:text-brand-gold transition-colors pb-2 border-b border-brand-gold/0 hover:border-brand-gold mt-12 md:mt-0 leading-none">
+                    Ver todo o blog
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {posts.slice(0, 3).map((post) => (
+                <BlogCard 
+                  title={post.data.title}
+                  description={post.data.description}
+                  pubDate={post.data.pubDate}
+                  image={post.data.image || ""}
+                  slug={post.slug}
+                />
+              ))}
+            </div>
+        </div>
+    </section>
+
 		<FAQ />
 	</main>
 	<Footer />
