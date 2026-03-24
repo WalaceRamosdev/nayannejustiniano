@@ -1,7 +1,7 @@
 ---
 title: "Psicoterapia Online: Segurança, Eficácia e Conexão Humana"
 description: "A tecnologia como ponte para o autoconhecimento. Saiba tudo sobre como funciona o atendimento online e por que ele se tornou uma escolha poderosa para a saúde mental moderna."
-pubDate: 2024-03-22
+pubDate: 2026-03-24
 image: "/images/blog/terapia-online.png"
 tags: ["Tecnologia", "Terapia Online", "Acessibilidade"]
 ---

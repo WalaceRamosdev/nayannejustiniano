@@ -1,7 +1,7 @@
 ---
 title: "A Importância do Autocuidado: Além dos Rituais de Beleza"
 description: "Cuidar de si mesma é um ato de responsabilidade existencial. Entenda por que o autocuidado profundo é o pilar de uma vida com mais sentido e menos esgotamento."
-pubDate: 2024-03-23
+pubDate: 2026-03-24
 image: "/images/blog/autocuidado.png"
 tags: ["Autocuidado", "Bem-estar", "Saúde Mental"]
 ---

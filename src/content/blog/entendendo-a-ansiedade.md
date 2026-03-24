@@ -1,7 +1,7 @@
 ---
 title: "Entendendo a Ansiedade: Um Guia Profundo para o Equilíbrio"
 description: "A ansiedade não é apenas uma sensação; é uma resposta complexa do ser humano. Descubra como a fenomenologia existencial e a psicoterapia clínica podem oferecer um caminho de volta ao seu centro."
-pubDate: 2024-03-24
+pubDate: 2026-03-24
 image: "/images/blog/ansiedade.png"
 tags: ["Saúde Mental", "Ansiedade", "Terapia"]
 ---
