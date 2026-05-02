@@ -67,19 +67,19 @@ const formattedDate = post.data.pubDate.toLocaleDateString('pt-BR', {
         <Content />
       </div>
       
-      <!-- Alpha Code Management Notice -->
+      <!-- Sites Alpha Code Management Notice -->
       <div class="mt-16 p-8 rounded-3xl bg-brand-sand/10 border border-brand-sand/30 text-center scroll-reveal">
         <p class="text-xs uppercase tracking-[0.2em] text-brand-blue/40 mb-4 font-bold">Conteúdo Estratégico</p>
         <p class="text-sm font-sans text-brand-blue/60 italic leading-relaxed">
           Este artigo faz parte do programa de gestão de conteúdo especializado para psicólogas, <br class="hidden md:block" />
-          desenvolvido e mantido pela <a href="https://www.sitesalphacode.com.br/pedido?plan=artigos" target="_blank" rel="noopener noreferrer" class="text-brand-gold font-medium hover:underline decoration-brand-gold/30">Alpha Code</a>.
+          desenvolvido e mantido pela <a href="https://www.sitesalphacode.com.br/pedido?plan=artigos" target="_blank" rel="noopener" class="text-brand-gold font-medium hover:underline decoration-brand-gold/30">Sites Alpha Code</a>.
         </p>
       </div>
       
       <!-- Tags & Share -->
       <footer class="mt-20 pt-12 border-t border-brand-sand/50 flex flex-col md:flex-row items-center justify-between gap-12">
         <div class="flex flex-wrap gap-4">
-          {post.data.tags?.map((tag) => (
+          {post.data.tags?.map((tag: string) => (
             <span class="bg-brand-blue/5 text-brand-blue/60 text-xs tracking-widest uppercase font-sans px-5 py-2.5 rounded-full border border-brand-blue/10">
               #{tag}
             </span>
